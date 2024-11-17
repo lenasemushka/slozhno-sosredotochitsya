@@ -15,12 +15,11 @@
   --accent-color: #ff0070;
   --title-color: #db00ff;
   --subheading-color: #000028;
+  background-image: url(../images/cover-image-dark.png);
 }
+
 
 /* Остальные стили */
 
-.page.theme_dark {
-  background-image: url(../images/cover-image-dark.png);
-}
 
 

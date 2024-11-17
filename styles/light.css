@@ -7,20 +7,16 @@
 
 
 .page.theme_light {
-  /* Переменные светлой темы */  
   --bg-color:  #fff1f7;
   --accent-bg: #ff8dcb;
   --text-color: #353430;
   --accent-color: #353430;
   --title-color: #ffc2e6;
   --subheading-color: #353430;
+  background-image: url(../images/cover-image-light.png);
 }
 
 /* Остальные стили */
-
-.page.theme_light {
-  background-image: url(../images/cover-image-light.png);
-}
 
 .page.theme_light .header__rec {
   display: none;
