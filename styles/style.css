@@ -1,5 +1,6 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+
 .page {
   padding: 10px;
   overflow-x: hidden;
@@ -21,8 +22,9 @@
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
   align-items: start;
-  height: 100vh;
-  min-height: 658px; 
+  /*min-height: 100vh;
+  height: 100vh;*/
+  min-height: 658px;
 }
 
 .decorated-zone {
@@ -135,7 +137,7 @@
 }
 
 .header__text-block {
-  margin-block-start: 55px;
+  margin-block-start: 54px;
   margin-block-end: 66px;
 }
 
@@ -212,19 +214,23 @@
 
 .gallery {
   padding-block-start: 40px;
-  padding-block-end: 35px;
+  padding-block-end: 40px;
 }
 
 .gallery__list {
   display: grid;
-  grid-template-columns: 1fr;
+  /*grid-template-columns: 1fr;*/
   grid-auto-rows: auto;
-  gap: 5px;
+  gap: 10px;
+  height: auto;
   margin-block-start: 10px;
+  overflow: hidden;
 }
 
 .gallery__image {
+  display: block;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
