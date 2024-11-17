@@ -1,13 +1,8 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
-html, body {
+.page {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-.page {
   padding: 10px;
   overflow-x: hidden;
   color: var(--text-color);
