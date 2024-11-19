@@ -1,9 +1,8 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  overflow-x: hidden;
   color: var(--text-color);
-  font-family: var(--main-font), Verdana, sans-serif;
+  font-family: var(--main-font), Verdana, monospace;
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-medium);
   line-height: var(--text-line-height);
@@ -57,8 +56,6 @@
   position: absolute;
   display: flex;
   align-items: center;
-  width: 52px;
-  height: 26px;
   color: var(--accent-color);
   inset-inline-end: 19px;
   inset-block-start: 10px;
@@ -81,17 +78,12 @@
 .header__theme-menu {
   justify-self: end;
   align-self: center;
-  min-height: 98px;
 }
 
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.header__theme-menu-item {
-  height: 26px;
 }
 
 .header__theme-menu-button {
@@ -104,6 +96,8 @@
   text-align: center;
   text-transform: lowercase;
   background-color: initial;
+  outline: 1px solid transparent;
+  transition: outline 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .header__theme-menu-button:hover:not(:disabled) {
@@ -168,15 +162,19 @@
   font-size: inherit;
 }
 
-.focus__text-block,
-.distraction__text-block,
-.tips__text-block {
+.card__text-block {
   margin-block-start: 10px;
+}
+
+.card__text-block p:not(:last-child) {
+  margin-block-end: 10px;
 }
 
 .link-decor {
   text-decoration: none;
   text-shadow: 1px 1px 0 var(--accent-bg);
+  outline: 1px solid transparent;
+  transition: outline 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .link-decor:hover {
@@ -191,14 +189,12 @@
   outline: 1px solid var(--text-color);
 }
 
-.tips__list-item {
+.tips__list .card {
   margin-block-start: 20px;
 }
 
-.tips__list-item-title {
-  color: var(--subheading-color);
+.tips__article .card .card__subtitle {
   font-weight: var(--font-weight-regular);
-  background-color: var(--accent-bg);
 }
 
 .gallery__list {
@@ -207,7 +203,6 @@
   grid-auto-rows: auto;
   gap: 10px;
   margin-block-start: 10px;
-  overflow: hidden;
 }
 
 .gallery__image {
@@ -237,7 +232,7 @@
   text-shadow: 2px 2px 0 var(--accent-bg);
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (width >= 768px) {
     .header {
     grid-template-columns: repeat(2, 1fr);
     min-height: 1024px;
@@ -296,7 +291,7 @@
     align-self: start;
   }
 
-  .focus__article {
+  .focus .card {
     grid-column: 2;
   }
 
@@ -311,7 +306,7 @@
     grid-column: 1 / 2;
   }
 
-  .distraction__article {
+  .distraction .card {
     grid-column: 1 / 3;
   }
 
@@ -371,27 +366,9 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .header {
-    grid-template-columns: repeat(2, 1fr);
     min-height: 768px;
-    padding: 20px;
-  }
-  
-  .decorated-zone::before {
-    grid-column: span 2;
-    inset-block-start: 20px;
-    inset-inline-end: 20px;
-  }
-
-  .decorated-zone::after {
-    inset-block-end: 20px;
-    inset-inline-start: 20px;
-  }
-
-  .header__rec {
-    inset-inline-end: 29px;
-    inset-block-start: 20px;
   }
 
   .header__theme-menu {
@@ -406,103 +383,36 @@
   }
 
   .header__title {
-    grid-column: span 2;
-    margin-inline-start: -20px;
     font-size: clamp(9.8125rem, 9.8125rem + 0vw, 9.8125rem);
   }
 
-  .header__br {
-    display: none;
-  }
-
-  .header__text-block {
-    grid-column-start: 2;
-  }
-
-  .main {
-    row-gap: 80px;
-    padding: 60px 20px;
-  }
-
   .focus {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-auto-rows: auto;
     column-gap: 10px;
-  }
-
-  .focus__title {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-  }
-
-  .focus__article {
-    grid-column: 2;
   }
 
   .distraction {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    column-gap: 20px;
   }
 
   .distraction__title {
-    grid-column: 1 / 2;
     grid-row: 1;
   }
 
-  .distraction__article {
+  .distraction .card {
     grid-column: span 1;
-    grid-row: 2;
+    grid-row: 2; 
+  }
+
+  .distraction .card:nth-child(n + 5) {
+    grid-row: span 2;
   }
 
   .tips {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-auto-rows: auto;
     column-gap: 10px;
-  }
-
-  .gallery__title {
-    margin-block-end: 20px;
-  }
-
-  .gallery__list {
-    grid-template-columns: repeat(3, minmax(229px, 1fr));
-    row-gap: 20px;
-    column-gap: 20px;
-  }
-
-  .gallery__list-item:nth-child(1) {
-    grid-column: 1 / 3;
-    grid-row: 1;
-  }
-
-  .gallery__list-item:nth-child(2) {
-    grid-column: 3;
-    grid-row: 1 / 3;
-  }
-  
-  .gallery__list-item:nth-child(3) {
-    grid-column: 1;
-    grid-row: 2 / 4;
-  }
-
-  .gallery__list-item:nth-child(4) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  
-  .gallery__list-item:nth-child(5) {
-    grid-column: 2 / 4;
-    grid-row: 3;
   }
 
   .footer {
     min-height: 768px;
-    padding: 20px;
   }
 
   .footer__title {
