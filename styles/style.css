@@ -23,11 +23,11 @@
   align-items: center;
   height: 100vh;
   min-height: 668px;
-  padding: 10px;
+  padding: var(--padding-offset);
 }
 
 .decorated-zone {
-  position: relative;
+  position: relative; 
 }
 
 .decorated-zone::before {
@@ -37,8 +37,8 @@
   height: 25px;
   border-inline-end: 1px solid var(--accent-color);
   border-block-start: 1px solid var(--accent-color);
-  inset-block-start: 10px;
-  inset-inline-end: 10px;
+  inset-block-start: var(--padding-offset);
+  inset-inline-end: var(--padding-offset);
 }
 
 .decorated-zone::after {
@@ -48,8 +48,8 @@
   height: 25px;
   border-inline-start: 1px solid var(--accent-color);
   border-block-end: 1px solid var(--accent-color);
-  inset-block-end: 10px;
-  inset-inline-start: 10px;
+  inset-block-end: var(--padding-offset);
+  inset-inline-start: var(--padding-offset);
 }
 
 .header__rec {
@@ -57,13 +57,15 @@
   display: flex;
   align-items: center;
   color: var(--accent-color);
-  inset-inline-end: 19px;
-  inset-block-start: 10px;
+  gap: 10px;
+  top: calc(var(--padding-offset) + 12.5px);
+  right: calc(var(--padding-offset) + 12.5px); 
+  justify-content: center;
+  transform: translate(6%, -50%);
 }
 
 .header__rec::before {
   content: 'REC';
-  margin-inline-end: 11px;
 }
 
 .header__rec::after {
@@ -124,10 +126,7 @@
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.83;
   text-shadow: 4px 4px 0 var(--accent-bg);
-}
-
-.header__br {
-  display: inline;
+  /*max-width: 759px;*/
 }
 
 .header__text-block {
@@ -221,7 +220,7 @@
   align-items: center;
   height: 100vh;
   min-height: 668px;
-  padding: 10px;
+  padding: var(--padding-offset);
 }
 
 .footer__title {
@@ -233,26 +232,18 @@
 }
 
 @media (width >= 768px) {
+  :root {
+    --padding-offset: 20px;
+  }
+
     .header {
     grid-template-columns: repeat(2, 1fr);
     min-height: 1024px;
-    padding: 20px;
+    padding: var(--padding-offset);
   }
-
-  .decorated-zone::before {
+  
+    .decorated-zone::before {
     grid-column: span 2;
-    inset-block-start: 20px;
-    inset-inline-end: 20px;
-  }
-
-  .decorated-zone::after {
-    inset-block-end: 20px;
-    inset-inline-start: 20px;
-  }
-
-  .header__rec {
-    inset-inline-end: 29px;
-    inset-block-start: 20px;
   }
 
   .header__theme-menu {
@@ -263,10 +254,6 @@
     grid-column: span 2;
     margin-inline-start: -20px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-
-  .header__br {
-    display: none;
   }
 
   .header__text-block {
@@ -358,7 +345,7 @@
 
   .footer {
     min-height: 1024px;
-    padding: 20px;
+    padding: var(--padding-offset);
   }
 
   .footer__title {

@@ -21,31 +21,8 @@
 
 /* Остальные стили */
 
-.page.theme_dark .decorated-zone {
-  position: relative;
-}
-
 .page.theme_dark .header__rec {
-  position: absolute;
   display: flex;
-  align-items: center;
-  color: var(--accent-color);
-  inset-inline-end: 19px;
-  inset-block-start: 10px;
-}
-
-.page.theme_dark .header__rec::before {
-  content: 'REC';
-  margin-inline-end: 11px;
-}
-
-.page.theme_dark .header__rec::after {
-  content: '';
-  width: 9px;
-  height: 9px;
-  border-radius: 100%;
-  box-shadow: 0 0 4px 2px var(--accent-color);
-  background-color: var(--accent-bg);
 }
 
 
